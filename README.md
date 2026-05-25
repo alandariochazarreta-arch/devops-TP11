@@ -13,31 +13,58 @@
 | Contenedor Backend (×N) | `docker_container` | app |
 | Contenedor Frontend | `docker_container` | app |
 
+---
+
 ## Uso
 
-Ejecutar en bash
-# Copiar y editar variables
-cp terraform.tfvars.example terraform.tfvars
+### Ejecutar en bash
 
-# Ciclo completo
+#### Copiar y editar variables
+
+```bash
+cp terraform.tfvars.example terraform.tfvars
+```
+
+#### Ciclo completo
+
+```bash
 terraform init
 terraform validate
 terraform plan
 terraform apply
+```
 
-# Ver outputs
+#### Ver outputs
+
+```bash
 terraform output
+```
 
-# Destruir
+#### Destruir
+
+```bash
 terraform destroy
-Multi-entorno
+```
+
+---
+
+## Multi-entorno
+
+```bash
 # Desarrollo (defaults)
 terraform apply
 
 # Producción
 terraform apply -var-file=envs/prod/terraform.tfvars
-Estructura de módulos
+```
+
+---
+
+## Estructura de módulos
+
+```text
 modules/
 ├── network/   → redes Docker con subnets dedicadas
 ├── storage/   → volúmenes persistentes con labels
 └── app/       → contenedores con healthchecks y dependencias
+```
